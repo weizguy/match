@@ -59,32 +59,34 @@ function reset(){
 
 // function for card click event START
 // ***********************************************************************************
-function cardClicked() {    
-    if($(this).hasClass('clicked')){        
-        return;
-    }
-    $(this).addClass('clicked');
-    $('.flipContainer:hover .card').css("transform", "rotateY(180deg)");
-    var flip = document.getElementById("flip");
+function cardClicked() {
+    if(clickable === true) {
+        if ($(this).hasClass('clicked')) {
+            return;
+        }
+        $(this).addClass('clicked');
+        $('.flipContainer:hover .card').css("transform", "rotateY(180deg)");
+        var flip = document.getElementById("flip");
         flip.play();
-        if(first == null){
+        if (first == null) {
             first = $(this);
-        }else {
+        } else {
             second = $(this);
             var firstImage = first[0].children[0].children[1].style.backgroundImage;
             var secondImage = second[0].children[0].children[1].style.backgroundImage;
-            if (secondImage == firstImage) {   
+            if (secondImage == firstImage) {
                 second.removeClass("clicked");
-                first.removeClass("clicked"); 
+                first.removeClass("clicked");
                 attempts += 1;
                 matchCount += 1;
                 setTimeout(matched, 100);
-            } else { 
-                clickable = false;   
-                attempts += 1;    
+            } else {
+                clickable = false;
+                attempts += 1;
                 setTimeout(not_matched, 1000);
             }
         }
+    }
 }
 // ***********************************************************************************
 // function for card click event END
