@@ -1,0 +1,155 @@
+
+body {
+    background-image: url("../images/mkscreen.jpg");
+    background-size: cover;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    text-align: center;
+    color: yellow;
+}
+
+.container{
+    padding: 0;
+}
+
+.gameBoard{
+    height: auto;
+    margin: auto;
+    padding: 0;
+}
+
+.flipContainer {
+    perspective: 1000px;
+    width: 16.2%;
+    height: 25vh;
+    padding: 0;
+    margin: 1px;
+}
+
+.card,
+.front,
+.reveal {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #990000;
+    border-radius: 15px;
+}
+
+#reset {
+    cursor: pointer;
+}
+
+.card {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+.front {
+    background-image: url("../images/front.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #990000;
+    z-index: 2;
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+}
+
+.front,
+.reveal {
+    backface-visibility: hidden;
+}
+
+#accuracy,
+#played,
+#attempts {
+    text-align: center;
+    cursor: not-allowed;
+    border: 2px solid #990000;
+    margin: auto;
+    border-radius: 15px;
+    background-color: black;
+    height: auto;
+}
+
+header {
+    margin: auto;
+    margin-top: 15px;
+}
+
+#chosenOne {
+    font-size: 30px;
+}
+/* css for the character select */
+#hideVid {
+    position: absolute;
+    top: 85px;
+    height: 80vh;
+    background-color: black;
+}
+#vid {
+    visibility: visible;
+    z-index: 100;
+    background-color: black;
+}
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.centerImage {
+    margin: auto;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.choose,
+.choice {
+    display: none;
+}
+
+.choose:hover {
+    /*opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+    border: 5px solid yellow;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: auto;
+        right: auto;
+    }
+}

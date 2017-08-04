@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mortal Kombat Memory Match</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="css/game.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="openCharScreen();">
+<div class="container">
+    <header>
+        <div class="row">            
+            <div class="col-xs-2"><img src="images/logoReset.png" width="100px" id="reset"></div>
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-3">ACCURACY</div>
+                    <div class="col-xs-6">GAMES PLAYED</div>
+                    <div class="col-xs-3">ATTEMPTS</div>
+                </div>
+               <div class="row">
+                  <div class="col-xs-3" id="accuracy">0</div>
+                  <div class="col-xs-6" id="played">0</div>
+                   <div class="col-xs-3" id="attempts">0</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6" id="chosenOne"></div>
+                    <div class="col-xs-3"></div>
+                </div>
+            </div>
+            <div class="col-xs-2"><img src="images/logoMusic.png" width="100px" id="stopMusic"></div>
+        </div>
+    </header>
+    <section class="gameBoard">
+        <div class="row">
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+        </div>
+        <div class="row">
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+        </div>
+        <div class="row">
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+            <div class="flipContainer col-xs-2"><div class="card"><div class="front"></div><div class="reveal"></div></div></div>
+        </div>
+    </section>    
+</div>
+
+<!-- Modal for showing the character select screen -->
+
+<div id="charScreen" class="overlay">
+
+    <div class="overlay-content centerImage" style="background-image: url(images/mkscreen.jpg); background-position:center; background-repeat:no-repeat;">
+
+        <h1 class="choice">CHOOSE YOUR FIGHTER!</h1>
+
+        <img src="images/liukang.jpg" class="choose choice" title="Liu Kang" >
+        <img src="images/kunglao.jpg" class="choose choice" title="Kung Lao" >
+        <img src="images/johnnycage.jpg" class="choose choice" title="Johnny Cage" >
+        <br>
+
+        <img src="images/subzero.jpg" class="choose choice" title="SubZero" >
+        <img src="images/kano.jpg" class="choose choice" title="Kano" >
+        <img src="images/jax.jpg" class="choose choice" title="Jax" >
+        <br>
+
+        <img src="images/sonyablade.jpg" class="choose choice" title="Sonya Blade" >
+        <img src="images/scorpion.jpg" class="choose choice" title="Scorpion" >
+        <img src="images/raiden.jpg" class="choose choice" title="Raiden" >
+
+
+    </div>
+</div>
+
+<div id="hideVid" class="centerImage">
+    <video id="vid">
+        <source src="videos/all.mp4" type="video/mp4">
+    </video>
+</div>
+<audio id="flip">
+    <source src="sounds/flip.mp3" type="audio/mpeg">
+</audio>
+<audio id="outstanding">
+    <source src="sounds/outstanding.mp3" type="audio/mpeg">
+</audio>
+<audio id="impressive">
+    <source src="sounds/impressive.mp3" type="audio/mpeg">
+</audio>
+<audio id="excellent">
+    <source src="sounds/excellent.mp3" type="audio/mpeg">
+</audio>
+<audio id="yummy">
+    <source src="sounds/yummy.mp3" type="audio/mpeg">
+</audio>
+<audio id="wonderful">
+    <source src="sounds/wonderful.mp3" type="audio/mpeg">
+</audio>
+<audio id="toasty">
+    <source src="sounds/toasty.mp3" type="audio/mpeg">
+</audio>
+<audio id="superb">
+    <source src="sounds/superb.mp3" type="audio/mpeg">
+</audio>
+<audio id="fatality">
+    <source src="sounds/fatality.mp3" type="audio/mpeg">
+</audio>
+<audio id="subzero">
+    <source src="sounds/subzero.mp3" type="audio/mpeg">
+</audio>
+<audio id="scorpion">
+    <source src="sounds/scorpion.mp3" type="audio/mpeg">
+</audio>
+<audio id="kunglao">
+    <source src="sounds/kunglao.mp3" type="audio/mpeg">
+</audio>
+<audio id="johnnycage">
+    <source src="sounds/johnnycage.mp3" type="audio/mpeg">
+</audio>
+<audio id="challenger">
+    <source src="sounds/challenger.mp3" type="audio/mpeg">
+</audio>
+<audio id="laugh1">
+    <source src="sounds/laugh1.mp3" type="audio/mpeg">
+</audio>
+<audio id="laugh2">
+    <source src="sounds/laugh2.mp3" type="audio/mpeg">
+</audio>
+<audio id="music">
+    <source src="sounds/music.mp3" type="audio/mpeg">
+</audio>
+<script src="js/game.js"></script>
+</body>
+</html>
