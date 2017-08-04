@@ -247,15 +247,33 @@ function closeCharScreen() {
     var johnnycage = document.getElementById("johnnycage");
     var subzero = document.getElementById("subzero");
     var kunglao = document.getElementById("kunglao");
+    var challenger = document.getElementById("challenger");
     if(chosenOne === "Scorpion"){
+        vid.currentTime = 0;
         scorpion.play();
     }else if(chosenOne === "Kung Lao"){
+        vid.currentTime = 432;
         kunglao.play();
     }else if(chosenOne === "SubZero"){
+        vid.currentTime = 272;
         subzero.play();
     }else if(chosenOne === "Johnny Cage"){
+        vid.currentTime = 341;
         johnnycage.play();
-    }else {
+    }else if(chosenOne === "Jax"){
+        vid.currentTime = 627;
+        challenger.play();
+    }else if(chosenOne === "Sonya Blade"){
+        vid.currentTime = 678;
+        challenger.play();
+    }else if(chosenOne === "Kano"){
+        vid.currentTime = 1013;
+        challenger.play();
+    }else if(chosenOne === "Liu Kang"){
+        vid.currentTime = 1100;
+        challenger.play();
+    }else if(chosenOne === "Raiden"){
+        vid.currentTime = 1274;
         challenger.play();
     }
     $("#chosenOne").text(chosenOne);
