@@ -21,7 +21,7 @@ function readyPlayerOne(){
     shuffleCards(cards);
     displayStats();
     $('#reset').on('click', reset);
-    $('#stopMusic').click(function() {
+    $('#stopMusic').on('click', function() {
         if(videoOn === false) {
             if (music.paused == false) {
                 music.pause();
